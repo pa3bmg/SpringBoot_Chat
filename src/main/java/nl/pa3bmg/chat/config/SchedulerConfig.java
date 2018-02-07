@@ -7,7 +7,7 @@ import org.springframework.scheduling.config.ScheduledTaskRegistrar;
 
 /*
  * By default, all the @Scheduled tasks are executed in a default thread pool of size one created by Spring.
- * But hey, You can create your own thread pool and configure Spring to use that thread pool 
+ * You can create your own thread pool and configure Spring to use that thread pool 
  * for executing all the scheduled tasks.
  * Create a new package config inside com.example.schedulerdemo, and then create a new class called 
  * SchedulerConfig inside config package with the following contents -
