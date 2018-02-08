@@ -7,14 +7,20 @@ import java.util.concurrent.TimeUnit;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+
+import nl.pa3bmg.chat.kafka.producer.Sender;
 
 @Component
 public class ScheduledTasks {
 	private static final Logger log = LoggerFactory.getLogger(ScheduledTasks.class);
 
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+    
+    //@Autowired
+    //private Sender sender;
 
     @Scheduled(fixedRate = 5000)
     public void reportCurrentTime() {
@@ -44,5 +50,6 @@ public class ScheduledTasks {
     public void scheduleTaskWithCronExpression() {
     		log.info("scheduleTaskWithCronExpression Current Thread : {}", Thread.currentThread().getName());
         log.info("Cron Task :: Execution Time - {}", dateFormat.format(new Date()));
+        //sender.send("TEST", "scheduleTaskWithCronExpression "+dateFormat.format(new Date()));
     }
 }
